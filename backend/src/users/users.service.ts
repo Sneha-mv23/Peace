@@ -57,4 +57,8 @@ export class UsersService {
   async remove(id: string): Promise<void> {
     await this.userModel.findByIdAndUpdate(id, { isActive: false }).exec();
   }
+
+  async updateMfaSecret(id: string, secret: string): Promise<void> {
+    await this.userModel.findByIdAndUpdate(id, { mfaSecret: secret }).exec();
+  }
 }
